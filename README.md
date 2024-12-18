@@ -82,5 +82,5 @@ Untuk aplikasi ini, berikut adalah desain ERD yang menggambarkan relasi antar en
 | **ID**   | INTEGER   | Primary Key, ID film                                |
 | **DETAIL_PROD** | TEXT     | Deskripsi atau sinopsis film                        |
 
-**ID**: Tabel ini memiliki relasi satu-ke-satu dengan ID film yang diambil dari TMDb.
+**ID**: Tabel ini memiliki relasi satu-ke-satu dengan ID produk yang diambil dari dummy json.
 
