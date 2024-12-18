@@ -10,8 +10,8 @@ Aplikasi ini dibangun dengan teknologi dan layanan berikut:
 ### **Database:**
 - **PostgreSQL**: Digunakan sebagai database untuk menyimpan data terkait film, seperti detail film dan overview yang diperbarui.
 
-### **External API:**
-- **The Movie Database (TMDb) API**: API eksternal digunakan untuk mengambil informasi tentang film, termasuk data seperti judul, poster, dan genre. API ini memungkinkan aplikasi untuk mengakses informasi film yang terus diperbarui.
+### **Free API:**
+- **Dummy JSON API**: API eksternal digunakan untuk mengambil informasi tentang produk, termasuk data seperti nama, detail, dan harga. API ini memungkinkan aplikasi untuk mengakses informasi produk.
 
 ---
 
@@ -26,11 +26,7 @@ Untuk menjalankan aplikasi ini dengan lancar, Anda perlu mempersiapkan beberapa 
 
 #### **Database:**
 - **PostgreSQL** harus terinstal dan berjalan di server. Anda juga perlu membuat database yang sesuai dengan konfigurasi yang terdapat di aplikasi.
-- Pastikan tabel yang relevan sudah dibuat di database (misalnya `MOVIE.DETAIL_MOV` untuk menyimpan detail film).
-
-#### **API Key untuk TMDb:**
-- Diperlukan **API key** untuk mengakses data film dari **The Movie Database (TMDb)**. Anda dapat mendapatkan API key dari [TMDb API](https://www.themoviedb.org/).
-- **API key** ini digunakan dalam aplikasi untuk mengambil data film secara otomatis.
+- Pastikan tabel yang relevan sudah dibuat di database (misalnya `PRODUCT.DATA_PRODUCT` untuk menyimpan detail film).
 
 ---
 
@@ -60,25 +56,19 @@ Berikut adalah langkah-langkah untuk menginstall aplikasi ini:
     ```
 
 ### **Langkah 4: Konfigurasi database**
-- Sesuaikan pengaturan **database** :
+- Sesuaikan pengaturan **database**  anda pada bagian ini:
     ```ini
     database.default.hostname = localhost
     database.default.username = postgres
     database.default.password = rahasia123
-    database.default.database = movie_db
+    database.default.database = postgres
     ```
 
-### **Langkah 5: Menyiapkan API Key**
-- Daftar di **TMDb** untuk mendapatkan **API Key**.
-- Masukkan **API Key** yang  didapatkan ke dalam file **model** `Movie_m.php`, pada bagian:
-    ```php
-    protected $api_key = '6bfaa39b0a3a25275c765dcaddc7dae7';
-    ```
 
 ### **Langkah 6: Menjalankan Aplikasi**
 - Jalankan web server Anda dan pastikan aplikasi dapat diakses melalui browser.
 - Buka codingan dan masuk ke terminal, lalu ketik _php spark serve_.
-- Aplikasi seharusnya dapat menampilkan data film dari TMDb dan memungkinkan Anda untuk mengedit sinopsis film.
+- Aplikasi seharusnya dapat menampilkan data product dan bisa melihat detail dari product tersebut.
 
 ---
 
@@ -86,11 +76,11 @@ Berikut adalah langkah-langkah untuk menginstall aplikasi ini:
 
 Untuk aplikasi ini, berikut adalah desain ERD yang menggambarkan relasi antar entitas dalam aplikasi:
 
-### Tabel: DETAIL_MOV
+### Tabel: DATA_PRODUCT
 | Field    | Tipe Data | Keterangan                                           |
 |----------|-----------|------------------------------------------------------|
 | **ID**   | INTEGER   | Primary Key, ID film                                |
-| **OVERVIEW** | TEXT     | Deskripsi atau sinopsis film                        |
+| **DETAIL_PROD** | TEXT     | Deskripsi atau sinopsis film                        |
 
 **ID**: Tabel ini memiliki relasi satu-ke-satu dengan ID film yang diambil dari TMDb.
 
